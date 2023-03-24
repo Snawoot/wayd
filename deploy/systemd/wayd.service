@@ -1,0 +1,18 @@
+[Unit]
+Description=What Are You Doing? - time-tracker
+StartLimitIntervalSec=200
+StartLimitBurst=3
+
+[Service]
+Environment=DISPLAY=:0.0
+Environment=HOME=%h
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+ExecStart=%h/bin/wayd.sh
+Restart=always
+KillMode=process
+TimeoutStartSec=5
+TimeoutStopSec=5
+RestartSec=90
+
+[Install]
+WantedBy=default.target
